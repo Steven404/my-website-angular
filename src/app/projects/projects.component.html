@@ -1,1 +1,8 @@
-<p>projects works!</p>
+<div class="wrapper">
+    <div class="label-wrapper"><label class="title">My projects</label></div>
+    <div class="container">
+        <div *ngFor="let projectCard of projectCards">
+            <app-project-card [projectCard]="projectCard"></app-project-card>
+        </div>
+    </div>
+</div>

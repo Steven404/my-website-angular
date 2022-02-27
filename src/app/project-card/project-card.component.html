@@ -1,1 +1,24 @@
-<p>project-card works!</p>
+<mat-card class="project-card mat-elevation-z4">
+    <mat-card-title>{{projectCard.title | titlecase}}</mat-card-title>
+    <mat-card-subtitle>Category: {{projectCard.category|titlecase}}</mat-card-subtitle>
+    <mat-accordion>
+        <mat-expansion-panel class="mat-elevation-z3" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              {{panelOpenState ? 'Less information': 'More information'}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+            <p>Completed: {{projectCard.isFinished ? 'Yes': 'No'}}</p>
+            <p><Strong>Description:</Strong> </p>
+            <div [innerHtml]="projectCard.description"></div>
+            <p><Strong>Languages used:</Strong></p>
+            <ul>
+              <li *ngFor="let language of projectCard.languages">{{language}}</li>
+            </ul>
+            <p><Strong>Related Links: </Strong></p>
+            <div class="link-buttons" *ngFor="let link of projectCard.links| keyvalue">
+              <a mat-raised-button class="button mat-elevation-z4" color="accent" href="{{link.value}}" target="_blank">{{link.key|titlecase}}</a>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>

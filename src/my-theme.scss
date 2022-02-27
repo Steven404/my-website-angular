@@ -3,7 +3,7 @@
 @include mat-core();
 
 $light-theme-primary: mat-palette($mat-blue);
-$light-theme-accent: mat-palette($mat-blue-grey);
+$light-theme-accent: mat-palette($mat-teal);
 $light-theme-background-color: #DEE4E7;
 
 $light-theme: mat-light-theme($light-theme-primary,$light-theme-accent);
@@ -11,7 +11,7 @@ $light-theme: mat-light-theme($light-theme-primary,$light-theme-accent);
 @include angular-material-theme($light-theme); //default light theme
 
 $dark-primary: mat-palette($mat-blue-grey);
-$dark-accent:  mat-palette($mat-brown, A200, A100, A400);
+$dark-accent:  mat-palette($mat-cyan, A200, A100, A400);
 
 $dark-theme:   mat-dark-theme($dark-primary, $dark-accent);
 

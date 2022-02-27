@@ -1,0 +1,9 @@
+@media (min-width: 701px){
+    .container {
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction:row;
+        flex-wrap: wrap;
+    }
+}

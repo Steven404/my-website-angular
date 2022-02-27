@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProjectCard } from 'src/types';
 
 @Component({
   selector: 'app-project-card',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-card.component.css']
 })
 export class ProjectCardComponent implements OnInit {
+
+  panelOpenState: boolean;
+
+  @Input() projectCard: ProjectCard;
+
+  
 
   constructor() { }
 

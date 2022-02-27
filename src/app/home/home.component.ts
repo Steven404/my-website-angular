@@ -10,10 +10,13 @@ export class HomeComponent implements OnInit {
 
   cvName: string;
 
+
   constructor(private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
     this.cvName = 'Stefanos Michelakis CV(English).pdf';
+    
   }
+
 
 }

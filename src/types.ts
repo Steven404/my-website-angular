@@ -11,3 +11,12 @@ export interface WorkExperienceCard{
     location: string;
     title: string;
 }
+
+export interface ProjectCard{
+    category: string;
+    description: string;
+    isFinished: boolean;
+    title: string;
+    languages: string[];
+    links: string[];
+}
