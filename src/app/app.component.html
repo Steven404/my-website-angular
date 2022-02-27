@@ -1,0 +1,14 @@
+<mat-sidenav-container class="mat-app-background" [ngClass]="{'dark-theme': isDarkTheme, 'light-theme-bg': !isDarkTheme}">
+    <mat-sidenav  #sidenav role="navigation">
+        <div fxLayout="column" *ngFor="let page of pages;last as isLast">
+            <button class="sidenav_a" routerLinkActive="mat-elevation-z4 list-item-active" mat-button routerLink="{{page.path}}">{{page.title}}</button>
+            <div class="sidenav_theme_toggle" *ngIf="isLast"><mat-slide-toggle [(ngModel)]="isDarkTheme" (change)="changeThemeLocal()"><mat-icon>bedtime</mat-icon></mat-slide-toggle></div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header-navbar [isDarkTheme]="isDarkTheme" (sidenavToggleEmmiter)="sidenav.toggle()" (themeEmitter)="changeTheme($event)"></app-header-navbar>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

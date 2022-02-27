@@ -1,0 +1,13 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+
+mat-slide-toggle{
+    transform: scale(0.8);
+}
+
+.list-item-active{
+    font-size: 0.9em;
+    font-weight: 700;
+}

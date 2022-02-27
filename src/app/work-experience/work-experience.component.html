@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <div class="label-wrapper"><label class="title">My work experience</label></div>
+    <div class="container">
+        <div *ngFor="let workCard of workExperienceCards">
+            <app-work-card [workCard]="workCard"></app-work-card>
+        </div>
+    </div>
+</div>

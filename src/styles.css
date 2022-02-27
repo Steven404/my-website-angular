@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Nunito', sans-serif;
+    
+}
+
+html, body { height: 100%; }
+body { 
+    margin: 0;
+}
+
+.dark-theme strong{
+    text-shadow: 1px 1px 2px #000000;
+}
+
+@media (max-width: 700px) {
+    .title{
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+
+    .card{
+        margin-top: 3em;
+        width: 85vw;
+        text-align: justify;
+    }
+
+    mat-card-content{
+        font-size: 0.95em;
+    }
+}
+
+@media (min-width: 701px){
+    .title{
+        font-size: 1.8em;
+        font-weight: 700;
+    }
+
+    .card{
+        margin-top: 3em;
+        width: 50em;
+        text-align: justify;
+    }
+}
+
+.wrapper{
+    display: table;
+    margin: 4em auto;
+    align-items: center;
+}
+
+.label-wrapper{
+    text-align: center;
+}
+
+.card{
+    border-radius: 15px!important;
+}
+
+.button{
+    border-radius: 15px!important;
+}
+
+.button:hover{
+    font-weight: 800;
+}

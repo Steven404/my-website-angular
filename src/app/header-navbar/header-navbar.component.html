@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <div fxHide.gt-sm>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <span>{{currentPage}}</span>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-md>
+        <div class="spacer"></div>
+        <div *ngFor="let page of pages;last as isLast">
+            <a routerLinkActive="list-item-active" mat-button routerLink="{{page.path}}">{{page.title}}</a>
+            <mat-slide-toggle *ngIf="isLast" [(ngModel)]="isDarkTheme" labelPosition="before" (change)="storeThemeSelection()"><mat-icon>bedtime</mat-icon></mat-slide-toggle>
+        </div>
+    </div>
+</mat-toolbar>
