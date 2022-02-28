@@ -24,6 +24,11 @@ export class ContactComponent implements OnInit {
 
   copyText(content: string){
     this.clipboardApi.copyFromContent(content);
+    if (content.charAt(0)=='+'){
+      window.alert('My phone number is coppied to your clipboard!')
+    } else {
+      window.alert('My email is coppied to your clipboard!')
+    }
   }
 
 }
