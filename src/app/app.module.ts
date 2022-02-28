@@ -28,8 +28,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { FormsModule } from '@angular/forms';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FlexLayoutModule,
     FlexModule,
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

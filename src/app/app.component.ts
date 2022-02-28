@@ -1,15 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pages } from 'src/types';
-import { RouterOutlet } from '@angular/router';
-import { fader } from './route-animations';
+import { Router, RouterOutlet } from '@angular/router';
+import { animateComponents } from './route-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [fader]
+  animations: [animateComponents]
 })
 export class AppComponent implements OnInit {
+  
+  firstTime: boolean = true;
+
   title = 'Stefanos Michelakis';
 
   @Input() isDarkTheme: boolean;
@@ -18,11 +21,16 @@ export class AppComponent implements OnInit {
     {title: 'Home', path: 'home'},
     {title: 'About Me', path: 'about-me'},
     {title: 'Work Experience', path: 'work-experience'},
+    {title: 'Projects', path: 'projects'},
     {title: 'Contact', path: 'contact'}
   ]
 
+  constructor(private router: Router){}
+
   ngOnInit(): void{
+    this.firstTime = true;
     this.isDarkTheme = localStorage.getItem('theme')=== "Dark"? true:false;
+    this.router.events.subscribe(val => this.firstTime = false);
   }
 
   changeTheme(event){
@@ -35,7 +43,7 @@ export class AppComponent implements OnInit {
     localStorage.setItem('theme', this.isDarkTheme?"Dark" : "Light")
   }
 
-  prepareRoute(outlet){
-    return outlet;
+  prepareRoute(outlet: RouterOutlet){
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 }

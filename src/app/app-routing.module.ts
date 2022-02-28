@@ -8,15 +8,15 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'about-me', component: AboutMeComponent},
-  {path: 'work-experience', component: WorkExperienceComponent},
-  {path: 'projects', component: ProjectsComponent},
-  {path: 'contact', component: ContactComponent}
+  {path: 'home', component: HomeComponent, data: { animation : '1'}},
+  {path: 'about-me', component: AboutMeComponent, data: { animation : '2'}},
+  {path: 'work-experience', component: WorkExperienceComponent, data: { animation : '3'}},
+  {path: 'projects', component: ProjectsComponent, data: { animation : '4'}},
+  {path: 'contact', component: ContactComponent, data: { animation : '5'}}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

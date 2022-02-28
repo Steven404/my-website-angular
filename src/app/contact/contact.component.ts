@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { ClipboardService } from 'ngx-clipboard';
+import { ContactInfo } from 'src/types';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  contactInfo: ContactInfo;
+
+  constructor(private db: AngularFireDatabase, private clipboardApi: ClipboardService) { }
 
   ngOnInit(): void {
+    this.db.object('/contanct_info')
+    .valueChanges()
+    .subscribe((res: ContactInfo) =>{
+      this.contactInfo = res;
+    })
+  }
+
+  copyText(content: string){
+    this.clipboardApi.copyFromContent(content);
   }
 
 }

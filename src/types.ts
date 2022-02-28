@@ -20,3 +20,9 @@ export interface ProjectCard{
     languages: string[];
     links: string[];
 }
+
+export interface ContactInfo{
+    email: string;
+    phone_no: string;
+    social: string[];
+}

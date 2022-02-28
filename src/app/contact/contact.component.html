@@ -1,1 +1,23 @@
-<p>contact works!</p>
+<div class="wrapper">
+    <div class="label-wrapper"><label class="title">Contact</label></div>
+    <mat-card class="contact-card mat-elevation-z4">
+        <mat-card-title>Stefanos Michelakis</mat-card-title>
+        <mat-card-subtitle>Contact info</mat-card-subtitle>
+        <mat-card-content>
+            <p><strong>Phone Number:&emsp;</strong></p><p>{{contactInfo.phone_no}}</p>
+            <p style="margin-top: 2em"><strong>Email:&emsp;</strong></p><p>{{contactInfo.email}}</p>
+            <div style="margin-top: 2em">
+                <p><Strong>Social:</Strong></p>
+                <ul *ngFor="let social of contactInfo.social| keyvalue">
+                    <a style="display: list-item;" class="social-a" color="accent" href="{{social.value}}" target="_blank">{{social.key|titlecase}}</a>
+                </ul>
+            </div>
+            <div style="margin-top: 2em; display: block; text-align: center;">
+                <button style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.phone_no)">Copy number</button>
+            </div>
+            <div style="margin-top: 0.5em; display: block; text-align: center;">
+                <button style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.email)">Copy email</button>
+            </div>
+        </mat-card-content>
+  </mat-card>
+</div>

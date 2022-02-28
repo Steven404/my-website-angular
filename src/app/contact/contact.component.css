@@ -1,0 +1,16 @@
+
+@media (max-width: 400px) {
+      .contact-card{
+        margin-top: 3em;
+        width: 85vw;
+        text-align: justify;
+    }
+}
+
+@media (min-width: 401px){
+    .contact-card{
+        margin-top: 3em;
+        width: 25em;
+        text-align: justify;
+    }
+}

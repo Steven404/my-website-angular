@@ -11,7 +11,7 @@ $light-theme: mat-light-theme($light-theme-primary,$light-theme-accent);
 @include angular-material-theme($light-theme); //default light theme
 
 $dark-primary: mat-palette($mat-blue-grey);
-$dark-accent:  mat-palette($mat-cyan, A200, A100, A400);
+$dark-accent:  mat-palette($mat-pink, A200, A100, A400);
 
 $dark-theme:   mat-dark-theme($dark-primary, $dark-accent);
 
