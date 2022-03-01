@@ -7,7 +7,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, data: { animation : '1', title: 'Home'}},
   {path: 'about-me', component: AboutMeComponent, data: { animation : '2', title: 'About Me'}},
   {path: 'work-experience', component: WorkExperienceComponent, data: { animation : '3', title: 'Work Experience'}},

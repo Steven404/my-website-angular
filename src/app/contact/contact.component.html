@@ -4,7 +4,7 @@
         <mat-card-title>Stefanos Michelakis</mat-card-title>
         <mat-card-subtitle>Contact info</mat-card-subtitle>
         <mat-card-content>
-            <p><strong>Phone Number:&emsp;</strong></p><p>{{contactInfo.phone_no}}</p>
+            <p><strong>Phone Number:&emsp;</strong></p><p>{{contactInfo.phoneNo}}</p>
             <p style="margin-top: 2em"><strong>Email:&emsp;</strong></p><p>{{contactInfo.email}}</p>
             <div style="margin-top: 2em">
                 <p><Strong>Social:</Strong></p>
@@ -13,7 +13,7 @@
                 </ul>
             </div>
             <div style="margin-top: 2em; display: block; text-align: center;">
-                <button style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.phone_no)">Copy number</button>
+                <button style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.phoneNo)">Copy number</button>
             </div>
             <div style="margin-top: 1em; display: block; text-align: center;">
                 <button style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.email)">Copy email</button>

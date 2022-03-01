@@ -10,15 +10,18 @@ import { ContactInfo } from 'src/types';
 })
 export class ContactComponent implements OnInit {
 
-  contactInfo: ContactInfo;
-
+  contactInfo: ContactInfo = {
+    email: '',
+    social: new Array(),
+    phoneNo: ''
+  };
 
   title:string = 'Contact';
 
   constructor(private db: AngularFireDatabase, private clipboardApi: ClipboardService) { }
 
   ngOnInit(): void {
-    this.db.object('/contanct_info')
+    this.db.object('/contact_info')
     .valueChanges()
     .subscribe((res: ContactInfo) =>{
       this.contactInfo = res;

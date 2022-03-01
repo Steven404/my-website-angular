@@ -23,6 +23,6 @@ export interface ProjectCard{
 
 export interface ContactInfo{
     email: string;
-    phone_no: string;
+    phoneNo: string;
     social: string[];
 }
