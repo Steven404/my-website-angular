@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Pages } from 'src/types';
 import { Router, RouterOutlet } from '@angular/router';
 import { animateComponents } from './route-animations';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit {
     {title: 'Contact', path: 'contact'}
   ]
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private titleService: Title){}
 
   ngOnInit(): void{
     this.firstTime = true;
@@ -41,6 +42,10 @@ export class AppComponent implements OnInit {
   changeThemeLocal(){
     this.isDarkTheme == !this.isDarkTheme;
     localStorage.setItem('theme', this.isDarkTheme?"Dark" : "Light")
+  }
+
+  changeTitle(title: string){
+    this.titleService.setTitle(title);
   }
 
   prepareRoute(outlet: RouterOutlet){

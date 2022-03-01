@@ -12,6 +12,9 @@ export class ContactComponent implements OnInit {
 
   contactInfo: ContactInfo;
 
+
+  title:string = 'Contact';
+
   constructor(private db: AngularFireDatabase, private clipboardApi: ClipboardService) { }
 
   ngOnInit(): void {

@@ -11,6 +11,8 @@ export class WorkExperienceComponent implements OnInit {
 
   workExperienceCards: WorkExperienceCard[];
 
+  title:string = 'Work Experience';
+
   constructor(private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
@@ -18,7 +20,6 @@ export class WorkExperienceComponent implements OnInit {
     .valueChanges()
     .subscribe((res: WorkExperienceCard[]) =>{
       this.workExperienceCards = res;
-      console.log(this.workExperienceCards);
     });
   }
 

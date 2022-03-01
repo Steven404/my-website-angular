@@ -8,11 +8,11 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent, data: { animation : '1'}},
-  {path: 'about-me', component: AboutMeComponent, data: { animation : '2'}},
-  {path: 'work-experience', component: WorkExperienceComponent, data: { animation : '3'}},
-  {path: 'projects', component: ProjectsComponent, data: { animation : '4'}},
-  {path: 'contact', component: ContactComponent, data: { animation : '5'}}
+  {path: 'home', component: HomeComponent, data: { animation : '1', title: 'Home'}},
+  {path: 'about-me', component: AboutMeComponent, data: { animation : '2', title: 'About Me'}},
+  {path: 'work-experience', component: WorkExperienceComponent, data: { animation : '3', title: 'Work Experience'}},
+  {path: 'projects', component: ProjectsComponent, data: { animation : '4', title: 'Projects'}},
+  {path: 'contact', component: ContactComponent, data: { animation : '5', title: 'Contact'}}
 ];
 
 @NgModule({

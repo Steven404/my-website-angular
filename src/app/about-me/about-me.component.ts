@@ -10,6 +10,8 @@ export class AboutMeComponent implements OnInit {
 
   aboutMe: string;
 
+  title:string = 'About Me';
+
   constructor(private db: AngularFireDatabase) { }
 
   ngOnInit(): void {

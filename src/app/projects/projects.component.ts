@@ -9,6 +9,8 @@ import { ProjectCard } from 'src/types';
 })
 export class ProjectsComponent implements OnInit {
 
+  title:string = 'Projects';
+
   projectCards: ProjectCard[];
 
   constructor(private db: AngularFireDatabase) { }
@@ -18,8 +20,8 @@ export class ProjectsComponent implements OnInit {
     .valueChanges()
     .subscribe((res: ProjectCard[]) =>{
       this.projectCards = res;
-      console.log(this.projectCards);
     });
+    
 }
 
 }

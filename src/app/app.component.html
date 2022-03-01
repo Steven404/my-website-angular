@@ -7,8 +7,9 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <app-header-navbar [isDarkTheme]="isDarkTheme" (sidenavToggleEmmiter)="sidenav.toggle()" (themeEmitter)="changeTheme($event)"></app-header-navbar>
-        <main [@routeAnimation]="prepareRoute(outlet)">
-            <router-outlet #outlet = "outlet"></router-outlet>
+        <main [@routeAnimation]="prepareRoute(outlet)" >
+            <router-outlet #outlet = "outlet" (activate)="changeTitle($event.title)"></router-outlet>
         </main>
     </mat-sidenav-content>
 </mat-sidenav-container>
+
