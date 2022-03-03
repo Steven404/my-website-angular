@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { WorkExperienceCard } from 'src/types';
+import { FirebaseRtdbService } from '../services/firebase-rtdb.service';
 
 @Component({
   selector: 'app-work-experience',
@@ -13,14 +14,10 @@ export class WorkExperienceComponent implements OnInit {
 
   title:string = 'Work Experience';
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: FirebaseRtdbService) { }
 
   ngOnInit(): void {
-    this.db.list('work_experience')
-    .valueChanges()
-    .subscribe((res: WorkExperienceCard[]) =>{
-      this.workExperienceCards = res;
-    });
+    this.db.getListFromRTDB('/work_experience').subscribe((res: WorkExperienceCard[]) => this.workExperienceCards = res)
   }
 
 }

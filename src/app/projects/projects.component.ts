@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ProjectCard } from 'src/types';
+import { FirebaseRtdbService } from '../services/firebase-rtdb.service';
 
 @Component({
   selector: 'app-projects',
@@ -13,15 +14,11 @@ export class ProjectsComponent implements OnInit {
 
   projectCards: ProjectCard[];
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: FirebaseRtdbService) { }
 
-  ngOnInit(): void {    
-    this.db.list('my_projects')
-    .valueChanges()
-    .subscribe((res: ProjectCard[]) =>{
-      this.projectCards = res;
-    });
-    
+  ngOnInit(): void {
+    this.db.getListFromRTDB('/my_projects').subscribe((res: ProjectCard[]) => this.projectCards = res)
+
 }
 
 }

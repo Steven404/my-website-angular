@@ -26,3 +26,15 @@ export interface ContactInfo{
     phoneNo: string;
     social: string[];
 }
+
+export class ContactInfo1{
+  email: string;
+  phoneNo: string;
+  social: string[];
+
+  constructor(){
+    this.email = '';
+    this.phoneNo = '';
+    this.social = new Array();
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database'
+import { FirebaseRtdbService } from '../services/firebase-rtdb.service';
 
 @Component({
   selector: 'app-about-me',
@@ -12,17 +12,13 @@ export class AboutMeComponent implements OnInit {
 
   title:string = 'About Me';
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: FirebaseRtdbService) { }
 
   ngOnInit(): void {
     this.getAboutMe();
   }
 
   getAboutMe(){
-    this.db.object("/about_me/")                      //Gets item ingredients and instructions
-    .valueChanges()
-    .subscribe((res: string) => {
-      this.aboutMe = res;
-    })
+    this.db.getObjectFromRTDB('/about_me').subscribe((res:string) => this.aboutMe=res);
   }
 }

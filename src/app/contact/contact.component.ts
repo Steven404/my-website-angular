@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ClipboardService } from 'ngx-clipboard';
 import { ContactInfo } from 'src/types';
+import { FirebaseRtdbService } from '../services/firebase-rtdb.service';
 
 @Component({
   selector: 'app-contact',
@@ -18,14 +18,10 @@ export class ContactComponent implements OnInit {
 
   title:string = 'Contact';
 
-  constructor(private db: AngularFireDatabase, private clipboardApi: ClipboardService) { }
+  constructor(private clipboardApi: ClipboardService, private db: FirebaseRtdbService) { }
 
   ngOnInit(): void {
-    this.db.object('/contact_info')
-    .valueChanges()
-    .subscribe((res: ContactInfo) =>{
-      this.contactInfo = res;
-    })
+    this.db.getObjectFromRTDB('/contact_info').subscribe((res: ContactInfo) => this.contactInfo = res )
   }
 
   copyText(content: string){
