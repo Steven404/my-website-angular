@@ -32,14 +32,10 @@ export class ContactComponent implements OnInit {
   copyText(content: string){
     this.clipboardApi.copyFromContent(content);
     if (content.charAt(0)=='+'){
-      this.customToast('My phone number is coppied to your clipboard!');
+      this.toast.success('My phone number has been copied to your clipboard', {id: 'pause', duration: 1500});
     } else {
-      this.customToast('My email is coppied to your clipboard!');
+      this.toast.success('My email has been copied to your clipboard', {id: 'pause', duration: 1500});
     }
-  }
-
-  customToast(msg: string) {
-    this.toast.success(msg);
   }
 
 }
