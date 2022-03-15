@@ -35,7 +35,7 @@ body {
         text-align: justify;
     }
 
-    mat-card-content{
+    .mat-card-content{                   /*να δω*/    
         font-size: 0.95em;
     }
 }

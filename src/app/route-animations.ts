@@ -9,10 +9,11 @@ import {
 } from '@angular/animations';
 
 export const animateComponents = 
-[
+[   
     trigger('routeAnimation',[
         transition(':increment', slideTo('right')),
         transition(':decrement', slideTo('left')),
+        transition('* <=> *', fade())
     ]),
     trigger('openingAnimation',[
         transition('* <=> *', fade())
@@ -32,7 +33,7 @@ function fade(){
             })
         ], { optional: true }),
         query(':enter', [
-            animate('600ms ease',
+            animate('1000ms ease',
                 style({ opacity: 1, transform: 'scale(1)'})
             )
         ], { optional: true })

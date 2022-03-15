@@ -29,9 +29,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { FormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatDialogModule } from '@angular/material/dialog'; 
 
 import { ClipboardModule } from 'ngx-clipboard';
+import { HotToastModule } from '@ngneat/hot-toast';
+
+
 
 @NgModule({
   declarations: [
@@ -66,7 +68,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     MatSlideToggleModule,
     MatExpansionModule,
 
-    ClipboardModule
+    ClipboardModule,
+    HotToastModule.forRoot()
   ],
   providers: [
     Title

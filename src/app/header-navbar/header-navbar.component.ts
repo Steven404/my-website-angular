@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { HotToastService } from '@ngneat/hot-toast';
 import { Pages } from 'src/types';
 
 @Component({
@@ -24,7 +25,7 @@ export class HeaderNavbarComponent implements OnInit {
 
   currentPage: string;
 
-  constructor() {
+  constructor(private toast: HotToastService) {
     this.currentPage = 'Stefanos Michelakis';
    }
 
@@ -40,6 +41,34 @@ export class HeaderNavbarComponent implements OnInit {
   storeThemeSelection(){
     localStorage.setItem('theme', this.isDarkTheme?"Dark" : "Light")
     this.themeEmitter.emit(this.isDarkTheme);
+    if(this.isDarkTheme) this.customToast('Dark theme enabled!')
+    else this.customToast('Dark theme disabled!');
+  }
+
+  customToast(msg: string) {
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark"? true:false;
+    if (this.isDarkTheme){
+      this.toast.success(msg,
+        {
+          duration: 2000,
+          theme: 'snackbar',
+          iconTheme: {
+            primary: '#455a64',
+            secondary: 'white',
+          }
+        }
+      )
+    } else {
+      this.toast.success(msg,
+        {
+          duration: 2000,
+          iconTheme: {
+            primary: '#00897B',
+            secondary: 'white',
+          }
+        }
+      )
+    }
   }
 
 }

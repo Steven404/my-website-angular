@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClipboardService } from 'ngx-clipboard';
 import { ContactInfo } from 'src/types';
 import { FirebaseRtdbService } from '../services/firebase-rtdb.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-contact',
@@ -18,7 +19,11 @@ export class ContactComponent implements OnInit {
 
   title:string = 'Contact';
 
-  constructor(private clipboardApi: ClipboardService, private db: FirebaseRtdbService) { }
+  constructor(
+    private clipboardApi: ClipboardService, 
+    private db: FirebaseRtdbService, 
+    private toast: HotToastService
+    ) { }
 
   ngOnInit(): void {
     this.db.getObjectFromRTDB('/contact_info').subscribe((res: ContactInfo) => this.contactInfo = res )
@@ -27,10 +32,14 @@ export class ContactComponent implements OnInit {
   copyText(content: string){
     this.clipboardApi.copyFromContent(content);
     if (content.charAt(0)=='+'){
-      window.alert('My phone number is coppied to your clipboard!')
+      this.customToast('My phone number is coppied to your clipboard!');
     } else {
-      window.alert('My email is coppied to your clipboard!')
+      this.customToast('My email is coppied to your clipboard!');
     }
+  }
+
+  customToast(msg: string) {
+    this.toast.success(msg);
   }
 
 }

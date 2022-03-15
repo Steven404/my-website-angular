@@ -8,17 +8,24 @@ import { FirebaseRtdbService } from '../services/firebase-rtdb.service';
 })
 export class AboutMeComponent implements OnInit {
 
+
   aboutMe: string;
+
+  isDarkTheme: boolean;
 
   title:string = 'About Me';
 
-  constructor(private db: FirebaseRtdbService) { }
+  constructor(
+    private db: FirebaseRtdbService,
+  ) { }
 
   ngOnInit(): void {
     this.getAboutMe();
   }
 
   getAboutMe(){
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark"? true:false;
     this.db.getObjectFromRTDB('/about_me').subscribe((res:string) => this.aboutMe=res);
   }
+
 }
