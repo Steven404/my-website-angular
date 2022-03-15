@@ -43,8 +43,10 @@ export class AppComponent implements OnInit {
     this.isDarkTheme == !this.isDarkTheme;
     localStorage.setItem('theme', this.isDarkTheme?"Dark" : "Light");
     this.changeHotToastTheme();
+    if(this.isDarkTheme) this.toast.success('Dark theme enabled!')
+    else this.toast.success('Dark theme disabled!');
   }
-
+  
   changeTitle(title: string){
     this.titleService.setTitle(title);
   }

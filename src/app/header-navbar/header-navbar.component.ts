@@ -41,34 +41,8 @@ export class HeaderNavbarComponent implements OnInit {
   storeThemeSelection(){
     localStorage.setItem('theme', this.isDarkTheme?"Dark" : "Light")
     this.themeEmitter.emit(this.isDarkTheme);
-    if(this.isDarkTheme) this.customToast('Dark theme enabled!')
-    else this.customToast('Dark theme disabled!');
-  }
-
-  customToast(msg: string) {
-    this.isDarkTheme = localStorage.getItem('theme') === "Dark"? true:false;
-    if (this.isDarkTheme){
-      this.toast.success(msg,
-        {
-          duration: 2000,
-          theme: 'snackbar',
-          iconTheme: {
-            primary: '#455a64',
-            secondary: 'white',
-          }
-        }
-      )
-    } else {
-      this.toast.success(msg,
-        {
-          duration: 2000,
-          iconTheme: {
-            primary: '#00897B',
-            secondary: 'white',
-          }
-        }
-      )
-    }
+    if(this.isDarkTheme) this.toast.success('Dark theme enabled!')
+    else this.toast.success('Dark theme disabled!');
   }
 
 }
