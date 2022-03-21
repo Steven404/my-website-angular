@@ -13,10 +13,12 @@
                 </ul>
             </div>
             <div style="margin-top: 2em; display: block; text-align: center;">
-                <button style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.phoneNo)">Copy number</button>
-            </div>
+                <button *ngIf="!isAndroid(); else elseBlock" style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.phoneNo)">Copy number</button>
+                <ng-template #elseBlock><a style="width: 120px;" mat-raised-button color="accent" class="button" href="tel:{{contactInfo.phoneNo}}">Call me</a></ng-template>
+              </div>
             <div style="margin-top: 1em; display: block; text-align: center;">
-                <button style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.email)">Copy email</button>
+                <button *ngIf="!isAndroid(); else elseBlock" style="width: 120px;" mat-raised-button color="accent" class="button" (click)="copyText(contactInfo.phoneNo)">Copy email</button>
+                <ng-template #elseBlock><a style="width: 120px;" mat-raised-button color="accent" class="button" href="mailto:{{contactInfo.email}}">Email me</a></ng-template>
             </div>
         </mat-card-content>
   </mat-card>

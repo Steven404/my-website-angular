@@ -20,8 +20,8 @@ export class ContactComponent implements OnInit {
   title:string = 'Contact';
 
   constructor(
-    private clipboardApi: ClipboardService, 
-    private db: FirebaseRtdbService, 
+    private clipboardApi: ClipboardService,
+    private db: FirebaseRtdbService,
     private toast: HotToastService
     ) { }
 
@@ -35,6 +35,16 @@ export class ContactComponent implements OnInit {
       this.toast.success('My phone number has been copied to your clipboard', {id: 'pause', duration: 1500});
     } else {
       this.toast.success('My email has been copied to your clipboard', {id: 'pause', duration: 1500});
+    }
+  }
+
+  isAndroid(){
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      // true for mobile device
+      return true;
+    }else{
+      // false for not mobile device
+      return false;
     }
   }
 
