@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pages } from 'src/types';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { animateComponents } from './route-animations';
 import { Title } from '@angular/platform-browser';
 import { HotToastService } from '@ngneat/hot-toast';
