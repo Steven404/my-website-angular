@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void{
     this.firstTime = true;
-    this.isDarkTheme = localStorage.getItem('theme') === "Dark"? true:false;
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark"? true : false;
   }
 
   changeTheme(event){
@@ -47,17 +47,17 @@ export class AppComponent implements OnInit {
     else this.toast.success('Dark theme disabled!');
   }
   
-  changeTitle(title: string){
+  changeTitle(title: string) {
     this.titleService.setTitle(title);
   }
 
-  prepareRoute(outlet: RouterOutlet){
+  prepareRoute(outlet: RouterOutlet) {
     this.firstTime = false;
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
-  changeHotToastTheme(){
-    if (this.isDarkTheme){
+  changeHotToastTheme() {
+    if (this.isDarkTheme) {
       this.toast.defaultConfig = {
         ...this.toast.defaultConfig,
         duration: 2000,

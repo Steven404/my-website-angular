@@ -8,9 +8,10 @@
               {{panelOpenState ? 'Less information': 'More information'}}
             </mat-panel-title>
           </mat-expansion-panel-header>
-            <p>Employer: {{workCard.employer| titlecase}}</p>
+            <div>Employer: {{workCard.employer| titlecase}}</div>
             <p></p>
-            <p>Description: {{workCard.description}}</p>
+            <div>Description: <div [innerHtml]="workCard.description"></div></div>
+            <br>
             <p>Date Started: {{workCard.fromDate}}</p>
             <p>Date Ended: {{workCard.untilDate}}</p>
         </mat-expansion-panel>

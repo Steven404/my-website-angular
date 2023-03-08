@@ -19,6 +19,7 @@
 
 .work-card{
     border-radius: 15px!important;
+    width: 25vw;
 }
 
 mat-expansion-panel{

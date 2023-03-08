@@ -27,6 +27,7 @@
     "firebase": "^9.4.0",
     "firebase-tools": "^9.23.3",
     "ngx-clipboard": "^15.0.1",
+    "prettier": "^2.8.1",
     "rxfire": "^6.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
