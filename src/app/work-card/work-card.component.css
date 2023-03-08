@@ -4,7 +4,7 @@
         margin-top: 2em;
         margin-left: 2.5em;
         margin-right: 2.5em;
-        width: 20em;
+        width: 25vw;
         text-align: left;
     }
 }
@@ -19,7 +19,6 @@
 
 .work-card{
     border-radius: 15px!important;
-    width: 25vw;
 }
 
 mat-expansion-panel{
